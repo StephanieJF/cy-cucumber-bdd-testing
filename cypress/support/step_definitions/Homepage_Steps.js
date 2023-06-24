@@ -10,3 +10,9 @@ When('I click the contact us button', () => {
     .invoke('removeAttr', 'target') //remove target attribute so page opens in same window
     .click();
 });
+
+When('I click the login portal button', () => {
+  cy.get('#login-portal')
+    .invoke('removeAttr', 'target') //remove target attribute so page opens in same window
+    .click();
+});
