@@ -19,6 +19,6 @@ When('I click the login button', () => {
   cy.get('#login-button').click();
 });
 
-Then('I receive the alert message {string}', (alertMessage) => {
+Then('I receive an alert message {string}', (alertMessage) => {
   expect(stub).to.have.been.calledWith(alertMessage);
 });

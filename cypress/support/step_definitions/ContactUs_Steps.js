@@ -23,7 +23,7 @@ When('I click the submit button', () => {
   cy.get('[type="submit"]').click();
 });
 
-Then('I should see messaging {string}', (messaging) => {
+Then('I should see appropriate response messaging {string}', (messaging) => {
   cy.xpath('//h1 | //body') //look in any h1 element OR any body element on the page
     .contains(messaging);
 });

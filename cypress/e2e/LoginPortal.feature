@@ -6,7 +6,7 @@ Feature: WebdriverUniversity - Login Page
         When I click the login portal button
         And I type a username '<username>' and a password '<password>'
         And I click the login button
-        Then I receive the alert message '<message>'
+        Then I receive an alert message '<message>'
 
         Examples:
             | username  | password     | message              |
