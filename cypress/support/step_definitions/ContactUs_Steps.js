@@ -21,6 +21,10 @@ When('I click the submit button', () => {
   cy.get('[type="submit"]').click();
 });
 
-Then('I should see a successful submission message {string}', (message) => {
+Then('I should see successful submission messaging {string}', (message) => {
   cy.get('h1').should('have.text', message);
+});
+
+Then('I should see unsuccessful submission messaging {string}', (message) => {
+  cy.get('body').contains(message);
 });
