@@ -1,22 +1,24 @@
 /// <reference types="cypress" />
-import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
+import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor';
+import Login_PO from '../page_objects/Login_PO';
 
+const loginPage = new Login_PO();
 let stub;
+
+Given('I am on the webdriveruniversity login page', () => {
+  loginPage.navigateToLoginPage();
+});
 
 When('I type a username {string} and a password {string}', (username, password) => {
   //if the username and password are not blank, type each into their fields
-  if (username) {
-    cy.get('#text').type(username);
-  }
-  if (password) {
-    cy.get('#password').type(password);
-  }
+  loginPage.enterUsername_ifNotBlank(username);
+  loginPage.enterPassword_ifNotBlank(password);
 });
 
 When('I click the login button', () => {
   stub = cy.stub();
   cy.on('window:alert', stub);
-  cy.get('#login-button').click();
+  loginPage.clickLoginButton();
 });
 
 Then('I receive an alert message {string}', (alertMessage) => {

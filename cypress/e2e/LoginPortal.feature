@@ -2,9 +2,8 @@ Feature: WebdriverUniversity - Login Page
 
     Scenario Outline: Login form submission
 
-        Given I am on the webdriveruniversity homepage
-        When I click the login portal button
-        And I type a username '<username>' and a password '<password>'
+        Given I am on the webdriveruniversity login page
+        When I type a username '<username>' and a password '<password>'
         And I click the login button
         Then I receive an alert message '<message>'
 

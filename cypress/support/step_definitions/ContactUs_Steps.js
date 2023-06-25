@@ -1,29 +1,23 @@
 /// <reference types="cypress" />
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
+import Contact_PO from '../page_objects/Contact_PO';
+
+const contactPage = new Contact_PO();
 
 When('I type a first name {string} and a last name {string}', (firstName, lastName) => {
-  if (firstName) {
-    cy.get('input[name="first_name"]').type(firstName);
-  }
-  if (lastName) {
-    cy.get('input[name="last_name"]').type(lastName);
-  }
+  contactPage.enterFirstName_ifNotBlank(firstName);
+  contactPage.enterLasttName_ifNotBlank(lastName);
 });
 
 When('I type an email address {string} and a comment {string}', (emailAddress, comment) => {
-  if (emailAddress) {
-    cy.get('input[name="email"]').type(emailAddress);
-  }
-  if (comment) {
-    cy.get('textarea[name="message"]').type(comment);
-  }
+  contactPage.enterEmail_ifNotBlank(emailAddress);
+  contactPage.enterComment_ifNotBlank(comment);
 });
 
 When('I click the submit button', () => {
-  cy.get('[type="submit"]').click();
+  contactPage.clickSubmit();
 });
 
 Then('I should see appropriate response messaging {string}', (messaging) => {
-  cy.xpath('//h1 | //body') //look in any h1 element OR any body element on the page
-    .contains(messaging);
+  contactPage.validate_SubmissionMessaging(messaging);
 });

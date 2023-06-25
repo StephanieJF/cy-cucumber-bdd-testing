@@ -6,7 +6,7 @@ import createEsbuildPlugin from "@badeball/cypress-cucumber-preprocessor/esbuild
 export default defineConfig({
   e2e: {
     specPattern: "**/*.feature",
-    baseUrl: 'https://webdriveruniversity.com/',
+    baseUrl: 'https://webdriveruniversity.com',
     async setupNodeEvents(
       on: Cypress.PluginEvents,
       config: Cypress.PluginConfigOptions

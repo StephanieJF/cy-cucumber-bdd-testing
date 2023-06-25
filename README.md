@@ -1,5 +1,6 @@
 # Login and Contact Form Testing with Cypress and Cucumber
-Automated testing of login and contact forms written in BDD format with Gherkin syntax using [Cypress](https://www.cypress.io/) and [Cucumber](https://cucumber.io/).  
+
+Automated testing of login and contact forms written in BDD format with Gherkin syntax using [Cypress](https://www.cypress.io/) and [Cucumber](https://cucumber.io/).
 
 - Application Url: [https://webdriveruniversity.com/](https://webdriveruniversity.com/)
 
@@ -18,21 +19,19 @@ And I click the submit button
 Then I should see appropriate response messaging
 
 ```
-</details>
 
+</details>
 
 <details>
   <summary>Feature: Login Portal</summary>
     <br>
 
 ```gherkin
-Given I am on the webdriveruniversity homepage
-When I click the login portal button
-And I type a username and a password
+Given I am on the webdriveruniversity login page
+When I type a username and a password
 And I click the login button
 Then I receive an alert message
 
 ```
-</details>
 
-    
+</details>

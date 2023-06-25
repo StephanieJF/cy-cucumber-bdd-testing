@@ -1,18 +1,17 @@
 /// <reference types="cypress" />
 import { Given, When } from '@badeball/cypress-cucumber-preprocessor';
+import Homepage_PO from '../page_objects/Homepage_PO';
+
+const homePage = new Homepage_PO(); //get homepage page object
 
 Given(`I am on the webdriveruniversity homepage`, () => {
-  cy.visit('');
+  homePage.goToHomepage();
 });
 
 When('I click the contact us button', () => {
-  cy.get('#contact-us')
-    .invoke('removeAttr', 'target') //remove target attribute so page opens in same window
-    .click();
+  homePage.clickContactUsButton();
 });
 
 When('I click the login portal button', () => {
-  cy.get('#login-portal')
-    .invoke('removeAttr', 'target') //remove target attribute so page opens in same window
-    .click();
+  homePage.clickLoginButton();
 });
